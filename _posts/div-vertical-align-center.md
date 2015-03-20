@@ -9,20 +9,22 @@ tags: [HTML,CSS]
 
 ##使用表格样式解决
 将外部容器的display属性设置为table-cell，并设置其属性vertical-align：middle;
-{% codeblock title:html lang:CSS %}
+{% codeblock lang:CSS %}
 .outerdiv {
-width: 100px;
-height: 100px;
-outline: sloid 1px red;
-display: table-cell;
-vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    outline: sloid 1px red;
+    display: table-cell;
+    vertical-align: middle;
 }
 {% endcodeblock %}
-{% codeblock title:html lang:HTML %}
+{% codeblock lang:HTML %}
 <div class="outerdiv">
-<div class="innerdiv">
-</div>
+    <div class="innerdiv">
+    </div>
 </div>
 {% endcodeblock %}
+
+最终效果如下图
 
 ##使用绝对定位的DIV

@@ -17,6 +17,11 @@ tags: [HTML,CSS]
     display: table-cell;
     vertical-align: middle;
 }
+.innerdiv{
+	width: 30px;
+    height: 30px;
+	outline: sloid 1px green;
+}
 {% endcodeblock %}
 {% codeblock lang:HTML %}
 <div class="outerdiv">
@@ -25,6 +30,52 @@ tags: [HTML,CSS]
 </div>
 {% endcodeblock %}
 
-最终效果如下图
-
 ##使用绝对定位的DIV
+要居中的div的postion设置为absolute，然后top设置为50%，但这个时候仅仅顶边是处于中间的位置，所以要让自身再往上偏离自身高度的一般，这里给margin-top一个负值。还有一个需要注意的是外部div的display默认为static，这个时候其内部的div的postion是相对外部最近的一个容器的，不一定是第一个外部的div，要给outerdiv的postion设置一个值，根据其所处的场景来定。
+.outerdiv {
+    width: 100px;
+    height: 100px;
+    outline: sloid 1px red;
+    position: relative;
+}
+.innerdiv{
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+	outline: sloid 1px green;
+}
+{% endcodeblock %}
+{% codeblock lang:HTML %}
+<div class="outerdiv">
+    <div class="innerdiv">
+    </div>
+</div>
+{% endcodeblock %}
+
+##插入一个DIV做填补
+其实思路是在上方或下方插入div进行占位，当然就是占一半50%咯，这样顶边或者底边刚好停在中线上，然后占位的div做一个负margin，偏移量就是自身高度的一半，让自己上去或者下来一般就ok了。这里我们就在上方进行插入一个空div来占位，下方的话一样的，自己看着来就行。
+.outerdiv {
+    width: 100px;
+    height: 100px;
+    outline: sloid 1px red;
+    position: relative;
+}
+.innerblockdiv{
+	height: 50%;
+    margin-bottom: -15px;
+}
+.innerdiv{
+    top: 50%;
+    margin-top: -30px;
+	outline: sloid 1px green;
+}
+{% endcodeblock %}
+{% codeblock lang:HTML %}
+<div class="outerdiv">
+	<div class="innerblockdiv">
+    </div>
+    <div class="innerdiv">
+    </div>
+</div>
+{% endcodeblock %}
+

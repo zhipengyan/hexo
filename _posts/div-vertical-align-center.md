@@ -18,9 +18,9 @@ tags: [HTML,CSS]
     vertical-align: middle;
 }
 .innerdiv{
-	width: 30px;
+    width: 30px;
     height: 30px;
-	outline: sloid 1px green;
+    outline: sloid 1px green;
 }
 {% endcodeblock %}
 {% codeblock lang:HTML %}
@@ -43,7 +43,7 @@ tags: [HTML,CSS]
     position: absolute;
     top: 50%;
     margin-top: -30px;
-	outline: sloid 1px green;
+    outline: sloid 1px green;
 }
 {% endcodeblock %}
 {% codeblock lang:HTML %}
@@ -54,30 +54,57 @@ tags: [HTML,CSS]
 {% endcodeblock %}
 
 ##插入一个DIV做填补
-其实思路是在上方或下方插入div进行占位，当然就是占一半50%咯，这样顶边或者底边刚好停在中线上，然后占位的div做一个负margin，偏移量就是自身高度的一半，让自己上去或者下来一般就ok了。这里我们就在上方进行插入一个空div来占位，下方的话一样的，自己看着来就行。
+其实思路是在上方或下方插入div进行占位，当然就是占一半50%咯，这样需要居中的div的顶边或者底边刚好停在中线上，然后占位的div做一个负margin，偏移量就是自身高度的一半，让自己上去或者下来一般就ok了。这里我们就在上方进行插入一个空div来占位，下方的话一样的，自己看着来就行。
 {% codeblock lang:CSS %}
 .outerdiv {
     width: 100px;
     height: 100px;
     outline: sloid 1px red;
-    position: relative;
 }
 .innerblockdiv{
-	height: 50%;
+    height: 50%;
     margin-bottom: -15px;
 }
 .innerdiv{
-    top: 50%;
-    margin-top: -30px;
-	outline: sloid 1px green;
+    outline: sloid 1px green;
+    width: 30px;
+    height: 30px;
 }
 {% endcodeblock %}
 {% codeblock lang:HTML %}
 <div class="outerdiv">
-	<div class="innerblockdiv">
+    <div class="innerblockdiv">
     </div>
     <div class="innerdiv">
     </div>
 </div>
 {% endcodeblock %}
 
+##top、bottom为0上下margin为auto
+设置固定高度，上下margin设置为auto，top和bottom为0，position为absolute。当然outerdiv的position不能为默认的static。
+{% codeblock lang:CSS %}
+.outerdiv {
+    width: 100px;
+    height: 100px;
+    outline: sloid 1px red;
+}
+.innerdiv{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    outline: sloid 1px green;
+    width: 30px;
+    height: 30px;
+}
+{% endcodeblock %}
+{% codeblock lang:HTML %}
+<div class="outerdiv">
+    <div class="innerblockdiv">
+    </div>
+    <div class="innerdiv">
+    </div>
+</div>
+{% endcodeblock %}
+
+方法就是这几种，参考了[这篇文章](http://www.qianduan.net/css-to-achieve-the-vertical-center-of-the-five-kinds-of-methods.html),当然方法应该还有其他的，我还没去探索，另外这几种方法的优缺点我还没有仔细考量，参考的文章中做了介绍，大家可以去看下。我也分别实验了集中方法，还是写出来心安。

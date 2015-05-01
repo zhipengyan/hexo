@@ -32,6 +32,7 @@ More info: [Generating](http://hexo.io/docs/generating.html)
 
 ``` bash
 $ hexo deploy
+
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)

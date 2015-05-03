@@ -3,4 +3,4 @@ date: 2015-05-01 19:32:22
 categories: hexo
 tags: [hexo,webhooks]
 ---
-没有用网上说的python脚本，依然使用nodejs来实现。 折腾到现在终于完美的实现了，这几天找时间把过程写下来。
+>背景：买了vps后本想用wordpress搭个博客环境，但觉得wp太重了，最终选择了hexo静态博客系统。因为有了vps和域名，就不想托管在gitpages上了，不然也不去买vps和域名了。hexo本身是搭建在本地的，新建文章和发布文章都在本地操作，推送到git上面。我是直接搭建在vps上面的，这样就不那么方便了，不能为了写个文章要ssh到vps上编辑，然后再发布吧。折中后我是将hexo的source目录作为git仓库托管在github上，本地用markdown写好文章后，推到github中，然后再远程vps在source目录中拉去文章，再使用vps上的hexo进行hexo generate。这样子看来发个文章也还是蛮拼的，如果本地写好文章推到github上后，能自动发布文章就好了

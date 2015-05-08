@@ -18,5 +18,6 @@ tags: [hexo,webhooks]
 hexo的默认文章目录为source/_posts ，我认为后面有可能还会添加其他东西，索性就把整个source托管到远程仓库了。
 
 ##三、为远程仓库添加webhooks
+太困了，先睡觉吧，后面接着写。。
 
 

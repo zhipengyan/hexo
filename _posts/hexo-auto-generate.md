@@ -11,11 +11,38 @@ tags: [hexo,webhooks]
 3.本地文章推送到远程仓库后，触发webhooks
 4.nodejs监听的端口收到webhooks后，执行shell命令，进行hexo generate
 
-##一、在vps中搭建hexo
+##二、在vps中搭建hexo
 估计看到这个文章的同学都是已经在本地或vps中搭建好了hexo的，所以这个搭建过程还是看其他的优秀文章或者看官方doc吧。
 
-##二、将hexo文章目录托管到github远程仓库
+##三、将hexo文章目录托管到github远程仓库
 hexo的默认文章目录为source/_posts ，我认为后面有可能还会添加其他东西，索性就把整个source托管到远程仓库了。
 
-##三、为远程仓库添加webhooks
-太困了，先睡觉吧，后面接着写。。.
+##四、为远程仓库添加webhooks
+打开托管hexo文章的github代码仓库页面，右边靠下点击settings，在下个页面中的Webhooks&Services选项中AddWebhoooks，Payload Url为自己vps建立的监听地址，Secret中填写一个密码，这个主要是为了验证是github对Payload Url发出的请求，同时也有密码验证，在监听的时候可以使用该密钥进行验证。否则任何访问该地址都会让你的hexo执行发布，感觉还是不放心。
+
+##五、为vps编写监听服务
+在写代码之前在网上看了下大家的解决方案，大多为使用python监听请求，然后去执行本地的shell脚本。我因为最近在学习nodejs，就想使用nodejs来实现，首先nodejs监听请求肯定是没问题的，问题是怎么去执行终端命令，本想也去写个shell让它来调用执行，后来发现了[shelljs](https://github.com/arturadib/shelljs)这个开源的项目，可以直接调用终端命令，索性就用这个了，也不用去写shell来调用了，直接代码中执行终端命令。我已经将我写好的代码放到github上去了，大家可以git clone直接使用[（我的代码）](https://github.com/zhipengyan/auto-publish-hexo)。写的比较简陋，可以发挥自己的闹洞进行修改完善。
+###使用方法
+1.
+{% codeblock lang:bash %}
+cd hexo安装路径
+git clone https://github.com/zhipengyan/auto-publish-hexo
+cd auto-publish-hexo
+npm install
+{% endcodeblock %}
+2.打开目录下的config.json进行修改
+{% codeblock lang:javascript %}
+{
+     "time_zone": "Asia/Shanghai", //所在时区，在log中显示时间了，vps一般不是本地时区
+     "webhook_secret": "your secret", //github webhooks设置的secret
+     "nodejs_version": "0.12", //使用的nodejs的版本
+     "path": { //如果hexo的配置为默认的话不用修改下面的
+       "hexo_path": "../", //hexo目录相对路径
+       "hexo_source_path": "../source" //hexo source目录的相对路径，也就是文章目录
+     },
+     "listen_port": 8888 //监听的端口
+}
+{% endcodeblock %}
+3.使用npm start或者node index.js运行
+
+[（我的代码）](https://github.com/zhipengyan/auto-publish-hexo)

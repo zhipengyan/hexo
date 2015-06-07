@@ -47,4 +47,4 @@ server{
        proxy_http_version 1.1;
     }
 }
-{% endcodeblock %}
+{% endcodeblock %} 

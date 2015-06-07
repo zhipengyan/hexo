@@ -24,6 +24,7 @@ brew install autossh
 {% codeblock lang:bash %}
 autossh -M 2132 user@ip_or_domain -N -R 9001:localhost:3000
 {% endcodeblock %}
+
 ><b>ip_or_domain</b>
 A服务器ip地址或者域名
 <b>9001</b>
@@ -47,4 +48,4 @@ server{
        proxy_http_version 1.1;
     }
 }
-{% endcodeblock %} 
+{% endcodeblock %}

@@ -17,9 +17,9 @@ C手机(移动设备)--可以连接外网，在微信中测试
 
 #安装autossh
 在B电脑中安装autossh，主要是为了保证ssh连接的稳定性，我在mac中直接用brew装了，linux中应该那些yum、apt-get都能直接装，windows下没研究，可能使用Cygwin会方便点。
-```
+{% codeblock lang:bash %}
 brew install autossh
-```
+{% endcodeblock %}
 
 #连接ssh开启隧道
 {% codeblock lang:bash %}

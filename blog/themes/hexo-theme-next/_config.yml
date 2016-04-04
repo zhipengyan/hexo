@@ -91,7 +91,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: /images/me.jpeg
 
 
 # Table Of Ccontents in the Sidebar

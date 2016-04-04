@@ -8,11 +8,7 @@ tags: [HTML,CSS]
 言归正传我们来了解一下这道题目的几种解法
 >我实现的[例子](http://sunnyyan.com:8080/lab/post/div-vertical-center.html)
 
-<<<<<<< HEAD
-##使用表格样式解决
-=======
 ## 使用表格样式解决
->>>>>>> 5e5610d3bb3e0973d12d32138f42ffe01eee0985
 将外部容器的display属性设置为table-cell，并设置其属性vertical-align：middle;
 {% codeblock lang:CSS %}
 .outerdiv {
@@ -35,11 +31,7 @@ tags: [HTML,CSS]
 </div>
 {% endcodeblock %}
 
-<<<<<<< HEAD
-##使用绝对定位的DIV
-=======
 ## 使用绝对定位的DIV
->>>>>>> 5e5610d3bb3e0973d12d32138f42ffe01eee0985
 要居中的div的postion设置为absolute，然后top设置为50%，但这个时候仅仅顶边是处于中间的位置，所以要让自身再往上偏离自身高度的一般，这里给margin-top一个负值。还有一个需要注意的是外部div的display默认为static，这个时候其内部的div的postion是相对外部最近的一个容器的，不一定是第一个外部的div，要给outerdiv的postion设置一个值，根据其所处的场景来定。
 {% codeblock lang:CSS %}
 .outerdiv {
@@ -62,11 +54,7 @@ tags: [HTML,CSS]
 </div>
 {% endcodeblock %}
 
-<<<<<<< HEAD
-##插入一个DIV做填补
-=======
 ## 插入一个DIV做填补
->>>>>>> 5e5610d3bb3e0973d12d32138f42ffe01eee0985
 其实思路是在上方或下方插入div进行占位，当然就是占一半50%咯，这样需要居中的div的顶边或者底边刚好停在中线上，然后占位的div做一个负margin，偏移量就是自身高度的一半，让自己上去或者下来一般就ok了。这里我们就在上方进行插入一个空div来占位，下方的话一样的，自己看着来就行。
 {% codeblock lang:CSS %}
 .outerdiv {
@@ -93,11 +81,7 @@ tags: [HTML,CSS]
 </div>
 {% endcodeblock %}
 
-<<<<<<< HEAD
-##top、bottom为0上下margin为auto
-=======
 ## top、bottom为0上下margin为auto
->>>>>>> 5e5610d3bb3e0973d12d32138f42ffe01eee0985
 设置固定高度，上下margin设置为auto，top和bottom为0，position为absolute。当然outerdiv的position不能为默认的static。
 {% codeblock lang:CSS %}
 .outerdiv {
